@@ -39,11 +39,12 @@ const Filter = ({
       sx={{
         display: 'flex',
         alignItems: 'center',
-        gap: 1,
+        gap: 2,
         mb: 2,
       }}
     >
       <FilterListIcon
+        sx={{ cursor: 'pointer' }}
         color="action"
         onClick={() => {
           setIsFilterHidden((prev) => !prev);
@@ -54,7 +55,7 @@ const Filter = ({
           <Typography variant="h6" component="h2">
             Технологии:
           </Typography>
-          <Stack direction="row" spacing={1} flexWrap="wrap">
+          <Stack direction="row" spacing={1} flexWrap="wrap" gap={1}>
             {allTechnologies.map((tech) => (
               <Chip
                 key={tech}
@@ -63,6 +64,7 @@ const Filter = ({
                 color={selectedTechs?.includes(tech) ? 'primary' : 'default'}
                 onClick={() => handleToggleTech(tech)}
                 variant={selectedTechs?.includes(tech) ? 'filled' : 'outlined'}
+                sx={{ cursor: 'pointer' }}
               />
             ))}
           </Stack>

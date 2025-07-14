@@ -30,16 +30,35 @@ const ProdjectCard = ({
   deploy,
 }: CardProps): ReactElement => {
   return (
-    <Card sx={{ width: 320 }} key={id}>
+    <Card sx={{ width: 300 }} key={id}>
       <CardMedia sx={{ height: 140 }} image={photoURL} title="preview" />
-      <CardContent>
+      <CardContent
+        sx={{
+          minHeight: 160,
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+      >
         <Typography gutterBottom variant="h5" component="div">
           {name}
         </Typography>
-        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+        <Typography
+          variant="body2"
+          sx={{
+            color: 'text.secondary',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            display: '-webkit-box',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+            mb: 1,
+            height: 40,
+          }}
+        >
           {description}
         </Typography>
-        <Stack direction="row" spacing={1} flexWrap="wrap">
+        <Stack direction="row" spacing={1} flexWrap="wrap" sx={{ height: 100 }}>
           {technologies.map((techno) => (
             <Chip label={techno} size="small" key={techno} />
           ))}
