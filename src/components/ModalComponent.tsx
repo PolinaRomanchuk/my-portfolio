@@ -19,7 +19,7 @@ interface ModalProps {
   purpose: string;
   technologies: string[];
   repo: string;
-  deploy: string;
+  deploy?: string;
   setting?: string;
   task?: string;
   onClose: () => void;

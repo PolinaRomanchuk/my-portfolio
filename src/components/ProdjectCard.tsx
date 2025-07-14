@@ -17,7 +17,7 @@ interface CardProps {
   description: string;
   technologies: string[];
   repo: string;
-  deploy: string;
+  deploy?: string;
 }
 
 const ProdjectCard = ({
@@ -68,9 +68,11 @@ const ProdjectCard = ({
         <Button variant="outlined" size="small" href={repo} target="_blank">
           Repository
         </Button>
-        <Button size="small" variant="outlined" href={deploy} target="_blank">
-          Deploy
-        </Button>
+        {deploy && (
+          <Button size="small" variant="outlined" href={deploy} target="_blank">
+            Deploy
+          </Button>
+        )}
       </CardActions>
     </Card>
   );

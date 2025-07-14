@@ -7,7 +7,7 @@ export interface ProjectData {
   purpose: string;
   technologies: string[];
   repo: string;
-  deploy: string;
+  deploy?: string;
   task?: string;
   setting?: string;
 }
@@ -304,7 +304,6 @@ export const Projects: ProjectData[] = [
       'SPA',
     ],
     repo: 'https://github.com/PolinaRomanchuk/my-portfolio',
-    deploy: '',
     features: ['Список работ', 'Фильтрация по технологиям', 'Модальные окна'],
   },
 ];
