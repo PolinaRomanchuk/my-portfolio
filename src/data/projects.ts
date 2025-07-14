@@ -1,4 +1,4 @@
-interface ProjectData {
+export interface ProjectData {
   id: number;
   photoURL: string;
   name: string;
@@ -51,7 +51,7 @@ export const Projects: ProjectData[] = [
     name: 'string',
     description: 'string',
     purpose: 'string',
-    technologies: ['string'],
+    technologies: ['string', 'TS', 'JS'],
     repo: 'string',
     deploy: 'string',
     task: 'string',
