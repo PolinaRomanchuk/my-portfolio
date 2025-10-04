@@ -9,7 +9,7 @@ const Header = (): ReactElement => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Portfolio
           </Typography>
-          <Avatar alt="photo" src="/polina.jpg" />
+          <Avatar alt="photo" src="/polina.webp" />
         </Toolbar>
       </AppBar>
     </Box>

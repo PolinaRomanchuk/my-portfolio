@@ -1,5 +1,5 @@
 import { Box, Chip, Stack, Typography } from '@mui/material';
-import { useEffect, useState, type ReactElement } from 'react';
+import { useEffect, useMemo, useState, type ReactElement } from 'react';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { Projects, type ProjectData } from '../data/projects';
 import { getAllTechnologies } from '../utils/prodjects';
@@ -13,7 +13,8 @@ const Filter = ({
   setFilteredProjects,
   setCurrentPage,
 }: FilterProps): ReactElement => {
-  const allTechnologies = getAllTechnologies();
+  const allTechnologies = useMemo(() => getAllTechnologies(), []);
+
   const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
   const [isFilterHidden, setIsFilterHidden] = useState<boolean>(true);
   useEffect(() => {

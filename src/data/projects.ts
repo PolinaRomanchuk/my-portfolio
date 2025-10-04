@@ -15,7 +15,7 @@ export interface ProjectData {
 export const Projects: ProjectData[] = [
   {
     id: 1,
-    photoURL: '/shelter.jpg',
+    photoURL: '/shelter.webp',
     name: 'Shelter',
     description: 'Shelter — сайт о приюте животных.',
     purpose: 'Верстка по макету Figma',
@@ -35,7 +35,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 2,
-    photoURL: '/audio.jpg',
+    photoURL: '/audio.webp',
     name: 'Audio Player',
     description: 'Кастомный музыкальный плеер.',
     purpose: 'Работа с медиа.',
@@ -54,7 +54,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 3,
-    photoURL: '/image-galery.jpg',
+    photoURL: '/image-galery.webp',
     name: 'Image Gallery',
     description: 'Галерея изображений с поиском по ключевым словам.',
     purpose: 'Работа с Unsplash API.',
@@ -72,7 +72,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 4,
-    photoURL: '/memory-game.jpg',
+    photoURL: '/memory-game.webp',
     name: 'Memory Game',
     description: 'Классическая игра на запоминание пар карточек.',
     purpose: 'Игра на запоминание.',
@@ -90,7 +90,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 5,
-    photoURL: '/christmas-shop.jpg',
+    photoURL: '/christmas-shop.webp',
     name: 'Christmas Shop',
     description: 'Cайт интернет-магазина подарков к Рождеству.',
     purpose: 'Верстка по макету Figma.',
@@ -110,7 +110,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 6,
-    photoURL: '/saymon-say.jpg',
+    photoURL: '/saymon-say.webp',
     name: 'Simon Says',
     description: 'Игра на запоминание последовательности.',
     purpose: 'Игра на запоминание.',
@@ -131,7 +131,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 7,
-    photoURL: '/nonograms.jpg',
+    photoURL: '/nonograms.webp',
     name: 'Nonograms',
     description: 'Головоломка японские кроссворды.',
     purpose: 'Игра кроссворды.',
@@ -153,7 +153,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 8,
-    photoURL: '/decision.jpg',
+    photoURL: '/decision.webp',
     name: 'Decision Making Tool',
     description:
       'SPA-приложение для случайного выбора одного из заданных вариантов на основе их веса.',
@@ -185,7 +185,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 9,
-    photoURL: '/race.jpg',
+    photoURL: '/race.webp',
     name: 'Async Race',
     description:
       'SPA-приложение, позволяющее управлять коллекцией автомобилей.',
@@ -222,7 +222,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 10,
-    photoURL: '/chat.jpg',
+    photoURL: '/chat.webp',
     name: 'Fun Chat',
     description:
       'SPA-чат с авторизацией, списком пользователей и приватными диалогами.',
@@ -258,7 +258,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 11,
-    photoURL: '/e-commerce.jpg',
+    photoURL: '/e-commerce.webp',
     name: 'eCommerce-Application',
     description: 'SPA онлайн-магазин по продаже цветов и растений.',
     purpose: 'SPA-приложение, eCommerce.',
@@ -289,7 +289,7 @@ export const Projects: ProjectData[] = [
   },
   {
     id: 12,
-    photoURL: '/portfolio.jpg',
+    photoURL: '/portfolio.webp',
     name: 'Portfolio',
     description: 'Сайт-портфолио о проектах.',
     purpose: 'Портфолио.',
