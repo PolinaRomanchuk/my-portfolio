@@ -1,12 +1,15 @@
 import { lazy, type ReactElement } from 'react';
-import Header from './components/Header';
+import { BrowserRouter, Route, Routes } from 'react-router';
 const ProdjectCardsList = lazy(() => import('./components/ProjectCardsList'));
 
 const App = (): ReactElement => {
   return (
     <>
-      <Header />
-      <ProdjectCardsList />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<ProdjectCardsList />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 };

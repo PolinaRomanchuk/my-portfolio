@@ -3,6 +3,7 @@ import { Projects, type ProjectData } from '../data/projects';
 import { Container, Grid, Pagination } from '@mui/material';
 import Filter from './Filter';
 import Loading from '../utils/Loading';
+import Header from './Header';
 
 const ModalComponent = lazy(() => import('./ModalComponent'));
 const ProdjectCard = lazy(() => import('./ProdjectCard'));
@@ -24,43 +25,46 @@ const ProdjectCardsList = (): ReactElement => {
     [filteredProjects, startPageIndex, endPageIndex]
   );
   return (
-    <Container sx={{ py: 5 }}>
-      <Filter
-        setFilteredProjects={setFilteredProjects}
-        setCurrentPage={setCurrentPage}
-      />
+    <>
+      <Header />
+      <Container sx={{ py: 5 }}>
+        <Filter
+          setFilteredProjects={setFilteredProjects}
+          setCurrentPage={setCurrentPage}
+        />
 
-      <Suspense fallback={<Loading />}>
-        <Grid container spacing={2} justifyContent="center">
-          {currentProjects.map((project) => (
-            <Grid
-              key={project.id}
-              columns={{ xs: 12, sm: 6, md: 4 }}
-              onClick={() => setSelectedProject(project)}
-              sx={{ cursor: 'pointer' }}
-            >
-              <ProdjectCard {...project} />
-            </Grid>
-          ))}
-        </Grid>
-      </Suspense>
-      <Pagination
-        sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}
-        count={totalPages}
-        showFirstButton
-        showLastButton
-        page={currentPage}
-        onChange={(_, value) => setCurrentPage(value)}
-      />
-      {selectedProject && (
         <Suspense fallback={<Loading />}>
-          <ModalComponent
-            {...selectedProject}
-            onClose={() => setSelectedProject(null)}
-          />
+          <Grid container spacing={2} justifyContent="center">
+            {currentProjects.map((project) => (
+              <Grid
+                key={project.id}
+                columns={{ xs: 12, sm: 6, md: 4 }}
+                onClick={() => setSelectedProject(project)}
+                sx={{ cursor: 'pointer' }}
+              >
+                <ProdjectCard {...project} />
+              </Grid>
+            ))}
+          </Grid>
         </Suspense>
-      )}
-    </Container>
+        <Pagination
+          sx={{ mt: 4, display: 'flex', justifyContent: 'center' }}
+          count={totalPages}
+          showFirstButton
+          showLastButton
+          page={currentPage}
+          onChange={(_, value) => setCurrentPage(value)}
+        />
+        {selectedProject && (
+          <Suspense fallback={<Loading />}>
+            <ModalComponent
+              {...selectedProject}
+              onClose={() => setSelectedProject(null)}
+            />
+          </Suspense>
+        )}
+      </Container>
+    </>
   );
 };
 

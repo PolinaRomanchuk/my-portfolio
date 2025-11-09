@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState, type ReactElement } from 'react';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { Projects, type ProjectData } from '../data/projects';
 import { getAllTechnologies } from '../utils/prodjects';
+import { useSearchParams } from 'react-router-dom';
 
 type FilterProps = {
   setFilteredProjects: React.Dispatch<React.SetStateAction<ProjectData[]>>;
@@ -14,9 +15,14 @@ const Filter = ({
   setCurrentPage,
 }: FilterProps): ReactElement => {
   const allTechnologies = useMemo(() => getAllTechnologies(), []);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const [selectedTechs, setSelectedTechs] = useState<string[]>([]);
+  const selectedTechs = useMemo(
+    () => searchParams.getAll('tech'),
+    [searchParams]
+  );
   const [isFilterHidden, setIsFilterHidden] = useState<boolean>(true);
+
   useEffect(() => {
     const filtered =
       selectedTechs.length === 0
@@ -24,15 +30,28 @@ const Filter = ({
         : Projects.filter((project) =>
             selectedTechs.every((tech) => project.technologies.includes(tech))
           );
-
     setFilteredProjects(filtered);
     setCurrentPage(1);
-  }, [selectedTechs, setFilteredProjects, setCurrentPage]);
+  }, [selectedTechs, setCurrentPage, setFilteredProjects]);
 
   const handleToggleTech = (tech: string) => {
-    setSelectedTechs((prev) =>
-      prev.includes(tech) ? prev.filter((t) => t !== tech) : [...prev, tech]
-    );
+    const current = searchParams.getAll('tech');
+    let updated: string[];
+
+    if (current.includes(tech)) {
+      updated = current.filter((t) => t !== tech);
+    } else {
+      updated = [...current, tech];
+    }
+
+    const newParams = new URLSearchParams();
+    updated.forEach((t) => newParams.append('tech', t));
+    if (updated.length === 0) {
+      setSearchParams({});
+    } else {
+      setSearchParams(newParams);
+    }
+    console.log(newParams);
   };
 
   return (
