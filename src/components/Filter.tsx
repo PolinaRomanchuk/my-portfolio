@@ -1,4 +1,11 @@
-import { Box, Chip, Stack, Typography } from '@mui/material';
+import {
+  Box,
+  Chip,
+  Stack,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@mui/material';
 import { useEffect, useMemo, useState, type ReactElement } from 'react';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { Projects, type ProjectData } from '../data/projects';
@@ -22,6 +29,9 @@ const Filter = ({
     [searchParams]
   );
   const [isFilterHidden, setIsFilterHidden] = useState<boolean>(true);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     const filtered =
@@ -58,6 +68,8 @@ const Filter = ({
     <Box
       sx={{
         display: 'flex',
+        flexDirection: isMobile ? 'column' : '',
+        justifyContent: isMobile ? 'center' : '',
         alignItems: 'center',
         gap: 2,
         mb: 2,

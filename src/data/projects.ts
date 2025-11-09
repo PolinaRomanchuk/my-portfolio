@@ -304,6 +304,7 @@ export const Projects: ProjectData[] = [
       'SPA',
     ],
     repo: 'https://github.com/PolinaRomanchuk/my-portfolio',
+    deploy: 'https://polina-romanchuk-portfolio.netlify.app/',
     features: ['Список работ', 'Фильтрация по технологиям', 'Модальные окна'],
   },
   {
